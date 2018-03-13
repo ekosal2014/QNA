@@ -1,5 +1,6 @@
 package Q_AND_A.kh.com.configuration;
 
+import org.apache.log4j.Logger;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -16,6 +17,8 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @EnableAutoConfiguration
 public class QAConfiguration extends WebMvcConfigurerAdapter{
 
+	 private static Logger logger  = Logger.getLogger(QAConfiguration.class);
+	 
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		// TODO Auto-generated method stub
