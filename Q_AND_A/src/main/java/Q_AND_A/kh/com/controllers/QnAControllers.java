@@ -8,6 +8,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import Q_AND_A.kh.com.configuration.QAConfiguration;
+import Q_AND_A.kh.com.consts.MsgConsts;
+import Q_AND_A.kh.com.utils.UtilCommon;
+import Q_AND_A.kh.com.utils.UtilConfig;
+import Q_AND_A.kh.com.utils.UtilLogger;
 
 @Controller
 public class QnAControllers {
@@ -19,6 +23,8 @@ public class QnAControllers {
 		String path = request.getRequestURL().toString();
 		System.out.println(" directorty :::: "+ System.getProperty("catalina.home"));
 		logger.info(" Path ::::::::::: " + path );
+		UtilLogger.log(UtilConfig.getValue(MsgConsts.LOG_FILE_USER), "Q&A_UserInfo" , "조금만 더 있다 갈게요."+UtilCommon.getEsc());
+		
 		return "/users/teach";
 	}
 
