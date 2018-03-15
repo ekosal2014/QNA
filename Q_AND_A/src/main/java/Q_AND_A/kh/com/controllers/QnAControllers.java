@@ -17,6 +17,7 @@ import Q_AND_A.kh.com.utils.UtilLogger;
 public class QnAControllers {
 	
 	 private static Logger logger  = Logger.getLogger(QAConfiguration.class);
+	 private static Logger log = Logger.getLogger(QAConfiguration.class);
 	
 	@RequestMapping(value = "/Article/teach", method = RequestMethod.GET)
 	public String QnATeach(HttpServletRequest request){
