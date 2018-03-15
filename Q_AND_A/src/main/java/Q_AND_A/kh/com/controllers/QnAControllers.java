@@ -2,6 +2,7 @@ package Q_AND_A.kh.com.controllers;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,13 +18,13 @@ import Q_AND_A.kh.com.utils.UtilLogger;
 public class QnAControllers {
 	
 	 private static Logger logger  = Logger.getLogger(QAConfiguration.class);
-	 private static Logger log = Logger.getLogger(QAConfiguration.class);
+	 private static Logger log = LogManager.getLogger(QAConfiguration.class);
 	
 	@RequestMapping(value = "/Article/teach", method = RequestMethod.GET)
 	public String QnATeach(HttpServletRequest request){
 		String path = request.getRequestURL().toString();
 		System.out.println(" directorty :::: "+ System.getProperty("catalina.home"));
-		logger.info(" Path ::::::::::: " + path );
+		log.info(" Path ::::::::::: " + path );
 		UtilLogger.log(UtilConfig.getValue(UtilConsts.LOG_FILE_USER), UtilConsts.LOG_FILE_USER_NAME , "조금만 더 있다 갈게요."+UtilCommon.getEsc());
 		System.err.println(" Date :::: " + UtilCommon.getDate() + "  Date Time ::: " + UtilCommon.getDateTime());
 		return "/users/teach";
