@@ -6,6 +6,12 @@ import java.io.IOException;
 
 public class UtilLogger {
 	
+	/**
+	 * 
+	 * @param dir     path directories that want to store log file
+	 * @param strName Name of log file
+	 * @param strMsg  Content that want to write into log file
+	 */
 	public static void log (String dir, String strName, String strMsg){
 		
 		FileWriter writer = null;
@@ -37,6 +43,12 @@ public class UtilLogger {
 		}
 	}
 	
+	
+	/**
+	 * 	
+	 * @param dir    path directories that want to store log file
+	 * @param strMsg Content that want to write into log file
+	 */
 	public static void log (String dir, String strMsg){
 		
 		try{
