@@ -688,3 +688,6 @@ Using default security password: 2085486c-6c8b-44ca-808a-d5489f470ba9
 2018-03-16 17:59:22 [http-nio-9999-exec-1] INFO  o.a.c.c.C.[.[localhost].[/qanda] - Initializing Spring FrameworkServlet 'dispatcherServlet'
 2018-03-16 17:59:22 [http-nio-9999-exec-1] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
 2018-03-16 17:59:22 [http-nio-9999-exec-1] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 43 ms
+2018-03-16 18:03:58 [RMI TCP Connection(2)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2018-03-16 18:03:58 [RMI TCP Connection(2)-127.0.0.1] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7692d9cc: startup date [Fri Mar 16 17:56:11 KST 2018]; root of context hierarchy
+2018-03-16 18:03:58 [RMI TCP Connection(2)-127.0.0.1] INFO  o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
