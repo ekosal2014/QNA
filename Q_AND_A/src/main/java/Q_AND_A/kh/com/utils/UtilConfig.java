@@ -12,7 +12,7 @@ public class UtilConfig extends Properties{
 	private static final long serialVersionUID = 1L;
 	
 	public static String     strName = ""  ;
-	public static UtilConfig config = null;
+	public static UtilConfig config  = null;
 	
 	public static UtilConfig getInstance(){
 		if ( config == null ){			

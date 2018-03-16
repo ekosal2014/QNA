@@ -12,4 +12,33 @@ public interface UserMapper {
 	 * @return 
 	 */
 	public UserInfo loadingUserByName(@Param("strName") String strName);
+	/**
+	 * 
+	 * @param userInfo
+	 * @return
+	 * INSERT INTO qna_user_info
+				(
+				     full_name
+				   , user_nickname
+				   , username
+				   , password
+				   , sts
+				   , txt
+				   , create_by
+				   , create_dt
+				   , action
+				)
+		VALUES  (
+				     #{full_name     }
+				   , #{user_nickname }
+				   , #{username      }
+				   , #{password      }
+				   , #{sts           }
+				   , #{txt           }
+				   , #{createby      }
+				   , #{createdt      }
+				   , #{action        }       					        
+				)       	
+	 */
+	public int inputUserInformation(UserInfo userInfo);
 }

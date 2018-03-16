@@ -1,5 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="Q_AND_A.kh.com.mappers.QAUserMapper">
-
+<mapper namespace="Q_AND_A.kh.com.mappers.UserMapper">
+       <insert id="inputUserInformation" parameterType="Q_AND_A.kh.com.domains.UserInfo">
+       		INSERT INTO qna_user_infor
+       					(
+       					     full_name
+       					   , user_nickname
+       					   , username
+       					   , password
+       					   , email
+       					   , sts
+       					   , txt
+       					   , createby
+       					   , createdt
+       					   , action
+       					)
+       			VALUES  (
+       					     #{full_name     }
+       					   , #{user_nickname }
+       					   , #{username      }
+       					   , #{password      }
+       					   , #{email         }
+       					   , #{sts           }
+       					   , #{txt           }
+       					   , #{createby      }
+       					   , #{createdt      }
+       					   , #{action        }       					        
+       					)       		
+       </insert>
 </mapper>

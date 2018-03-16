@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorator="layouts/layout">
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<th:block layout:fragment="content">
+<form id="frm-login" th:action="@{articel/register }" th:method="POST" >
+
+
+<table>
+	<tr>
+		<th>full name</th>
+		<td><input type="text" name="full_name"> </td>
+	</tr>
+	<tr>
+		<th>nick name</th>
+		<td><input type="text" name="user_nickname"></td>
+	</tr>
+	<tr>
+		<th>email</th>
+		<td><input type="text" name="email"></td>
+	</tr>
+	<tr>
+		<th>user name</th>
+		<td><input type="text" name="username"></td>
+	</tr>
+	<tr>
+		<th>password</th>
+		<td><input type="text" name="password"></td>
+	</tr>
+	<tr>
+
+		<td rowspan="2"><input type="button" value="Submit" id="btnRegister"></td>
+	</tr>
+</table>
+</form>
+
+<div lang="en" th:replace="fragments/assets :: assets"></div>
+<script>
+		$(document).ready(function(){
+			$('#btnRegister').click(function(){
+				$('#frm-login').submit();
+			});
+			$('#frm-login').submit(function(e) {
+				var frm = $('#frm-login');
+				e.preventDefault();
+				var data = {};
+
+				$.each(this,function(i,v){
+					var input = $(v);
+					data[input.attr("name")] = input.val();
+					delete(data["undefined"])
+				});
+				console.log(data);
+		        $.ajax({
+		            type: frm.attr('method'),
+		            url: frm.attr('action'),
+		            data : data,
+		            success : function(json){
+		            	console.log(json);
+		            	if (json == 'Bad credentials'){
+		            		alert("User Name Or Password is not match!");
+		            	}else if (json == ''){
+		            		alter("User Desible")
+		            	}else{
+		            		window.location.href = json;
+		            	}
+		            	           	
+		            },
+		            error : function(){
+		               console.log('error');
+		            }
+		        });
+		        
+			});
+		});
+	</script>
+</th:block>
+</body>
+</html>

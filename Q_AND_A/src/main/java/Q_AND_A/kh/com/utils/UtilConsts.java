@@ -24,10 +24,10 @@ public class UtilConsts {
 	 * log file constant
 	 * 
 	 * */	
-	public final static String LOG_FILE_USER      = "log.file.user";
-	public final static String LOG_FILE           = "log.file";
-	public final static String LOG_FILE_ERR       = "log.file.err";
-	public final static String LOG_FILE_QUERY     = "log.file.query";
+	public final static String DIR_LOG_FILE_USER      = "log.file.user";
+	public final static String DIR_LOG_FILE           = "log.file";
+	public final static String DIR_LOG_FILE_ERR       = "log.file.err";
+	public final static String DIR_LOG_FILE_QUERY     = "log.file.query";
 	
 	public final static String LOG_FILE_USER_NAME = "q&a_user_info";
 	

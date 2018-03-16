@@ -31,6 +31,7 @@ public class QAConfiguration extends WebMvcConfigurerAdapter{
 		// TODO Auto-generated method stub
 		registry.addViewController("/").setViewName("index");
 		registry.addViewController("/login/auth").setViewName("login");
+		registry.addViewController("/article/register").setViewName("register");
 	}
 
 	@Bean
