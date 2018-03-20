@@ -10,11 +10,69 @@
 <th:block layout:fragment="content">
 
 <form th:action="@{/login}" th:method="POST"   id="frm-login">
-	<input type="text"      name="txtUserName" id="txtUserName">
-	<input type="password"  name="txtPassword" id="txtPassWord">
+	<input type="text"      name="username" id="txtUserName">
+	<input type="password"  name="password" id="txtPassWord">
 	<a href="javascript:" class="btn_login" id="btnLogin">ចូលប្រើ</a>
 </form>
 
+
+<div lang="en" th:replace="fragments/assets :: assets"></div>
+<script>
+		$(document).ready(function(){
+			
+			$('#btnLogin').click(function(){
+				$('#frm-login').submit();
+			});
+			
+			$('#frm-login').submit(function(e) {
+				var frm = $('#frm-login');
+				e.preventDefault();
+				var data = {};
+
+				$.each(this,function(i,v){
+					var input = $(v);
+					data[input.attr("name")] = input.val();
+					delete(data["undefined"])
+				});
+				
+				console.log(data);
+		        $.ajax({
+		            type        : frm.attr('method'),
+		            url         : frm.attr('action'),
+		            data        : data,
+		            success     : function(json){		            	
+		            	console.log(json);
+		            	
+		            	if ( json.resultCd == '00000000' ){
+		            		
+		            		$('#resultMsg').text(json.resultMsg);
+		            		$('#resultMsg').show();
+		            		
+		            		 var interal = setInterval(function() {
+		            			 
+		            			 alert(json.resultMsg);
+		            			 clearInterval( interal );
+		            			 
+		            	     }, 2000);
+		            		 
+		            	}else{
+		            		
+		            		$('#resultMsg').text(json.resultMsg);
+		            		$('#resultMsg').show();
+		            		
+		            	}
+		            	     	
+		            },
+		            error      : function( json ){
+		               console.log("error "+json);
+		               
+		            }
+		        });
+		        
+			});
+		
+		});
+	</script>
 </th:block>
 
 </body>

@@ -1,7 +1,10 @@
 package Q_AND_A.kh.com.mappers;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
+import Q_AND_A.kh.com.domains.Role;
 import Q_AND_A.kh.com.domains.UserInfo;
 
 public interface UserMapper {
@@ -11,7 +14,13 @@ public interface UserMapper {
 	 * @param  strName
 	 * @return 
 	 */
-	public UserInfo loadingUserByName(@Param("strName") String strName);
+	public UserInfo loadingUserByName(@Param("username") String username);
+	/**
+	 * 
+	 * @param username
+	 * @return
+	 */
+	public List<Role> loadingRolesByName(@Param("username") String username);
 	/**
 	 * 
 	 * @param userInfo

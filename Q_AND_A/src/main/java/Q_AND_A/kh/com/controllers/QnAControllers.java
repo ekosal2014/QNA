@@ -12,10 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import Q_AND_A.kh.com.configuration.QAConfiguration;
 import Q_AND_A.kh.com.domains.UserInfo;
 import Q_AND_A.kh.com.services.UserServiceImpl;
-import Q_AND_A.kh.com.utils.UtilCommon;
-import Q_AND_A.kh.com.utils.UtilConfig;
-import Q_AND_A.kh.com.utils.UtilConsts;
-import Q_AND_A.kh.com.utils.UtilLogger;
+import Q_AND_A.kh.com.utils.UtilException;
 
 @Controller
 public class QnAControllers {
@@ -25,8 +22,8 @@ public class QnAControllers {
 	 @Autowired
 	 private UserServiceImpl userServiceImpl;
 	 
-	@RequestMapping(value = "/Article/teach", method = RequestMethod.GET)
-	public String QnATeach(HttpServletRequest request){
+	@RequestMapping(value = "/article/teach", method = RequestMethod.GET)
+	public String QnATeach(HttpServletRequest request) throws UtilException{
 		String path = request.getRequestURL().toString();
 		UserInfo userInfo = new UserInfo();
 		userServiceImpl.inputUserInformation(userInfo);

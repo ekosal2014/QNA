@@ -1,12 +1,24 @@
 package Q_AND_A.kh.com.domains;
 
+import java.util.Collection;
+import java.util.List;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+
+
 /**
  * 
  * @author Mango
  *
  */
-public class UserInfo {
+public class UserInfo implements UserDetails{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String user_cd      ;
 	private String full_name    ;
 	private String user_nickname;
@@ -24,6 +36,7 @@ public class UserInfo {
 	private String modify_dy    ;
 	private String modify_dt    ;
 	private String action       ;
+	private List<Role> roles  ; 
 	
 	public UserInfo(){
 		this.user_cd       = "";
@@ -43,12 +56,13 @@ public class UserInfo {
 		this.modify_dy     = "";
 		this.modify_dt     = "";
 		this.action        = "";
+		this.roles         = null;
 	}
 	
 	
 	public UserInfo(String user_cd, String full_name, String user_nickname, String gender, String phone, String email,
 			String address, String username, String password, String createby, String createdt, String photo,
-			String sts, String txt, String modify_dy, String modify_dt, String action) {
+			String sts, String txt, String modify_dy, String modify_dt, String action, List<Role> roles) {
 		
 		super();
 		this.user_cd       = user_cd      ;
@@ -68,6 +82,7 @@ public class UserInfo {
 		this.modify_dy     = modify_dy    ;
 		this.modify_dt     = modify_dt    ;
 		this.action        = action       ;
+		this.roles         = roles        ;
 	}
 	
 	public String getUser_cd() {
@@ -172,6 +187,58 @@ public class UserInfo {
 	public void setAction(String action) {
 		this.action = action;
 	}
+
+	
+
+	public List<Role> getRoles() {
+		return roles;
+	}
+
+
+	public void setRoles(List<Role> roles) {
+		this.roles = roles;
+	}
+
+
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		// TODO Auto-generated method stub
+		return roles;
+	}
+
+
+	@Override
+	public boolean isAccountNonExpired() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+
+	@Override
+	public boolean isAccountNonLocked() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+
+	@Override
+	public boolean isCredentialsNonExpired() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+
+	@Override
+	public boolean isEnabled() {
+		// TODO Auto-generated method stub
+		if ( sts.equals("1")) {
+			return true;
+		}
+		return false;
+	}
+
+
+
 	
 	
 }
