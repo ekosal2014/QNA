@@ -46,7 +46,7 @@ public class UserAuthenticationService implements UserDetailsService{
 			
 		}
 		
-		user.setRoles(auth);
+		user.setRoles(roles);
 
 		return user;
 	}
