@@ -20,7 +20,8 @@ public class UtilConsts {
 	final static public String MSG_ERROR_CD   = "99999999"; 
 	final static public String MSG_SUCCESS_CD = "00000000";
 	
-	public final static String USER_NOTFOUND_CD = "99999998";
+	public final static String USER_NOTFOUND_CD     = "99999998";
+	public final static String USER_PWD_NOTFOUND_CD = "";
 	
 	/*
 	 * log file constant
