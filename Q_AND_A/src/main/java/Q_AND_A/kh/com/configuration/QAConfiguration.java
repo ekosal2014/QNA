@@ -32,6 +32,7 @@ public class QAConfiguration extends WebMvcConfigurerAdapter{
 		registry.addViewController("/").setViewName("index");
 		registry.addViewController("/login/auth").setViewName("login");
 		registry.addViewController("/article/register").setViewName("register");
+		registry.addViewController("/userinfo/acticle").setViewName("users/acticle_add_new");
 	}
 
 	@Bean

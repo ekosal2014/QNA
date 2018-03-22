@@ -13,6 +13,8 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
+import Q_AND_A.kh.com.domains.Role;
+import Q_AND_A.kh.com.domains.UserInfo;
 import Q_AND_A.kh.com.utils.UtilException;
 
 

@@ -52,7 +52,6 @@ public class AjaxAuthenticationSuccessHandler implements AuthenticationSuccessHa
 			roles.add(authority.getAuthority());
 		}
 		
-		
 		if(roles.contains(RolesTxt.ROLE_ADMIN.toString())){
 			return "/admin";
 		}else if (roles.contains(RolesTxt.ROLE_USER.toString())){
