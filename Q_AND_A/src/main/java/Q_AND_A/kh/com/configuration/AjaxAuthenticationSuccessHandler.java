@@ -9,17 +9,22 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
 
-import Q_AND_A.kh.com.domains.Role;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import Q_AND_A.kh.com.enums.RolesTxt;
+import Q_AND_A.kh.com.utils.UtilMessage;
 
 @Component("ajaxAuthenticationSuccessHandler")
 public class AjaxAuthenticationSuccessHandler implements AuthenticationSuccessHandler {
 
+	 private static final Logger logger = Logger.getLogger(AjaxAuthenticationSuccessHandler.class);
+	 
 	@Override
 	public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
 			Authentication authentication) throws IOException, ServletException {
@@ -31,10 +36,12 @@ public class AjaxAuthenticationSuccessHandler implements AuthenticationSuccessHa
 			return;
 		}
 		*/
-		//response.sendRedirect(targetUrl);
-		response.getWriter().print(targetUrl);
-		response.getWriter().flush();
 		
+		ObjectMapper mapper = new ObjectMapper();		
+		UtilMessage msg = new UtilMessage("00000000",request.getParameter("redictUrl"));
+		String str = mapper.writeValueAsString(msg);
+	    response.getWriter().print(str);
+	    response.getWriter().flush();
 	}
 	
 	/**

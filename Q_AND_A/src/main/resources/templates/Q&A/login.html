@@ -20,6 +20,8 @@
 <script>
 		$(document).ready(function(){
 			
+			var path = window.location.search.substring(1);
+						
 			$('#btnLogin').click(function(){
 				$('#frm-login').submit();
 			});
@@ -27,8 +29,11 @@
 			$('#frm-login').submit(function(e) {
 				var frm = $('#frm-login');
 				e.preventDefault();
+				
 				var data = {};
-
+				var val  = path.split('=');
+				data['redictUrl'] = val[1]
+				alert(path);
 				$.each(this,function(i,v){
 					var input = $(v);
 					data[input.attr("name")] = input.val();

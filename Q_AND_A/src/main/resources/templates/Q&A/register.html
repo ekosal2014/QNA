@@ -9,6 +9,7 @@
 <body>
 
 <th:block layout:fragment="content">
+<a href="" id ="login">login</a>
 <form id="frm-login" th:action="@{/article/registers }" th:method="POST" >
 
 
@@ -46,6 +47,10 @@
 <div lang="en" th:replace="fragments/assets :: assets"></div>
 <script>
 		$(document).ready(function(){
+			
+			var path = window.location.pathname;
+			alert(path);
+			$('#login').attr('href','/qanda/login/auth?redictUrl='+encodeURIComponent(path.substring(6)));
 			
 			$('#btnRegister').click(function(){
 				$('#frm-login').submit();
