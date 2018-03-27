@@ -10,6 +10,10 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.stereotype.Component;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import Q_AND_A.kh.com.utils.UtilMessage;
+
 @Component("ajaxAuthenticationFailureHandler")
 public class AjaxAuthenticationFailureHandler implements AuthenticationFailureHandler{
 
@@ -17,8 +21,10 @@ public class AjaxAuthenticationFailureHandler implements AuthenticationFailureHa
 	public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response,
 			AuthenticationException exception) throws IOException, ServletException {
 		// TODO Auto-generated method stub
-		System.out.println(" error :: " + exception.getMessage());
-		response.getWriter().print(exception.getMessage());
+		ObjectMapper mapper = new ObjectMapper();		
+		UtilMessage msg = new UtilMessage("99999999",exception.getMessage());
+		String str = mapper.writeValueAsString(msg);
+		response.getWriter().print(str);
 		response.getWriter().flush();
 	}
 

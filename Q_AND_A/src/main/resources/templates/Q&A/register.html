@@ -48,10 +48,8 @@
 <script>
 		$(document).ready(function(){
 			
-			var path = window.location.pathname;
-			alert(path);
-			$('#login').attr('href','/qanda/login/auth?redictUrl='+encodeURIComponent(path.substring(6)));
-			
+			Common.redirecUrlAfterLogin();
+						
 			$('#btnRegister').click(function(){
 				$('#frm-login').submit();
 			});
@@ -89,7 +87,7 @@
 		            		
 		            		 var interal = setInterval(function() {
 		            			 
-		            			 window.location.href = '/qanda/login/auth?redictUrl=123456';
+		            			 window.location.href = '/qanda/login/auth?redictUrl=';
 		            			 clearInterval( interal );
 		            			 
 		            	     }, 2000);

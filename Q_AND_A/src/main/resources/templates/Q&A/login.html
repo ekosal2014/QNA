@@ -8,7 +8,8 @@
 </head>
 <body>
 <th:block layout:fragment="content">
-
+<div id="resultMsg" style="display:none;">
+</div>
 <form th:action="@{/login}" th:method="POST"   id="frm-login">
 	<input type="text"      name="username" id="txtUserName">
 	<input type="password"  name="password" id="txtPassWord">
@@ -46,24 +47,20 @@
 		            url         : frm.attr('action'),
 		            data        : data,
 		            success     : function(json){		            	
-		            	console.log(json);
 		            	
-		            	if ( json['resultCd'] === '00000000' ){
-		            		
-		            		$('#resultMsg').text(json.resultMsg);
-		            		$('#resultMsg').show();
-		            		
-		            		 var interal = setInterval(function() {
-		            			 
-		            			 alert(json.resultMsg);
-		            			 clearInterval( interal );
-		            			 
-		            	     }, 2000);
-		            		 
+		            	var  jsonCon = $.parseJSON(json);
+		            	
+		            	if ( jsonCon.resultCd === '00000000' ){	       		
+	            		
+		            			 window.location.href = '..'+decodeURIComponent(jsonCon.resultMsg);		            			 
+		            	    	 
 		            	}else{
-		            		
-		            		$('#resultMsg').text(json.resultMsg);
-		            		$('#resultMsg').show();
+		            			 
+ 								 $('#resultMsg').text(jsonCon.resultMsg);
+ 			            		 $('#resultMsg').show();
+		            			 
+		            			 //window.location.href = '..'+decodeURIComponent(jsonCon.resultMsg);
+		            			 
 		            		
 		            	}
 		            	     	

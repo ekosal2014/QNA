@@ -59,7 +59,6 @@ public class UserInfo implements UserDetails{
 		this.roles         = null;
 	}
 	
-	
 	public UserInfo(String user_cd, String full_name, String user_nickname, String gender, String phone, String email,
 			String address, String username, String password, String createby, String createdt, String photo,
 			String sts, String txt, String modify_dy, String modify_dt, String action, List<Role> roles) {

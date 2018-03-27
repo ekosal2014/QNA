@@ -26,7 +26,6 @@ public class UserAuthenticationService implements UserDetailsService{
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		// TODO Auto-generated method stub
-		System.out.println(" User Name ::: "+ username );
 			
 		UserInfo user = userMapper.loadingUserByName(username);
 		

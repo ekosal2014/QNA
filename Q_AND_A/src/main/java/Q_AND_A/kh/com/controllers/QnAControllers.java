@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -33,16 +34,20 @@ public class QnAControllers {
 		return "/users/teach";
 	}
 	
-	@RequestMapping( value = "/login" , method = RequestMethod.GET )
-	public String checkPageLogin(){
+	@RequestMapping( value = "/login/auth" , method = RequestMethod.GET )
+	public String checkPageLogin(ModelMap map){
 		
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		
-		if ( auth == null ){
+		if ( !auth.getPrincipal().equals("anonymousUser") ){
+			
+			UserInfo user = (UserInfo)auth.getPrincipal();
+			map.put("userInfo", user);
+			return "redirect:/";
 			
 		}
-		
 		return "login";
+		
 	}
 
 }

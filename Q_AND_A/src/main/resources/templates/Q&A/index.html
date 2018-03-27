@@ -7,15 +7,24 @@
 <link rel="stylesheet" th:href="@{/css/nprogress.css}">
 </head>
 <body>
-		<th:block layout:fragment="content">
-		<a href="/qanda/login/auth?redictUrl=123456">Login</a>
+	<th:block layout:fragment="content">
+		<a href="/qanda/login/auth?redictUrl=123456" id="login">Login</a>
 		<a href="/qanda/article/teach">Teach</a>
 		<a href="/qanda/article/register">Register</a>
 		<a href="/qanda/userinfo/acticle">Communication</a>
-		<a href="/qanda/admin/user_infor_list">user list</a>
+		<a href="/qanda/admin/user_infor_list">user list</a>		
+	
+	
+	<div lang="en" th:replace="fragments/assets :: assets"></div>
+	<script>
+		$(document).ready(function(){
+			
+			Common.redirecUrlAfterLogin();			
+			
 		
-		
-		</th:block>	
+		});
+	</script>
+	</th:block>	
 
 </body>
 </html>
