@@ -1,7 +1,5 @@
 package Q_AND_A.kh.com.configuration;
 
-import java.io.IOException;
-
 import javax.sql.DataSource;
 
 import org.apache.ibatis.session.SqlSessionFactory;
