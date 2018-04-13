@@ -19,9 +19,7 @@ import Q_AND_A.kh.com.mappers.UserMapper;
 public class UserAuthenticationService implements UserDetailsService{
 	
 	@Autowired
-	private UserMapper userMapper;
-	
-	
+	private UserMapper userMapper;	
 	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
